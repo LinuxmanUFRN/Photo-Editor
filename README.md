@@ -23,4 +23,5 @@ Filtro Gaussiano
 Filtro laplace                               
 ###Como compilar e executar:
 É bem simples, abra seu terminal no diretório que está o programa e digite sh compilador.sh
-
+#### BUG:
+Está havendo um estouro de pilha na alocação de imagens maiores que 2048 x 2048. Quando a pilha de chamada usa mais memória do que suporta, ocorre um estouro. Mas irei resolver isto futuramente usando alocação dinâmica... Use estas imagens disponíveis para teste.
