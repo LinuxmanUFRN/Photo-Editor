@@ -21,5 +21,6 @@ Sharpering 'Passa-Alta'
 Blurring 'Passa-Baixa'                        
 Filtro Gaussiano                            
 Filtro laplace                               
-                  
+###Como compilar e executar:
+É bem simples, abra seu terminal no diretório que está o programa e digite sh compilador.sh
 
