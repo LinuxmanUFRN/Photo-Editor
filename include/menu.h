@@ -1,8 +1,10 @@
-/*
- * File:   main.c
- * Author: adelinofernandes
+
+/**
+ *  \file menu.h
+ *  \brief Arquivo com a função Menu
  *
- * Created on 08 de novembro de 2015, 11:58
+ *  Arquivo com a função menu
+ *
  */
 #ifndef menu_h
 #define menu_h
