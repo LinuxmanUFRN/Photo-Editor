@@ -1,8 +1,8 @@
-/*
- * File:   main.c
- * Author: adelinofernandes
- *
- * Created on 05 de Novembro de 2015, 03:18
+/**
+ *  \file manipulacao.h
+ *  \brief Arquivo com a função para manipulação da imagem
+ *  Arquivo com a função de manipulação da imagem
+ *  Created on 05 de Novembro de 2015, 03:18
  */
  
 #include "Projeto.h"
