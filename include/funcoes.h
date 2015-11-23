@@ -9,8 +9,8 @@
 #ifndef funcoes_h
 #define funcoes_h
 
-    /*Grayscale
-     *
+    /*
+     *Função para aplicação da escala em cinza
      */
     
 void grayscale(Pixel imagem[altura][largura]){
@@ -30,8 +30,8 @@ void grayscale(Pixel imagem[altura][largura]){
 }
     
     
-    /*Binarization
-     *
+    /*
+     *Função de binarization da imagem usando thresholder
      */
         
 
@@ -65,7 +65,7 @@ void binarization(Pixel imagem[altura][largura], int thr){
 
 
     /*​
-     *Inverter cores
+     *Funcão para inverter cores da imagem
      */
 
 void inverter(Pixel imagem[altura][largura]){
@@ -83,7 +83,7 @@ void inverter(Pixel imagem[altura][largura]){
     }
 }
     /*​
-     *Espelha a imagem
+     *Função para espelhar a imagem
      */
 
 void espelhar(Pixel imagem[altura][largura]){
@@ -116,7 +116,7 @@ void espelhar(Pixel imagem[altura][largura]){
 
 
     /*​
-     * Rotacionar para esquerda OK!!! Funcionando Agora!!!
+     * Função para rotacionar a imagem para esquerda.
      */
 
 void rotacionar_esq(Pixel imagem[max][max]){
@@ -150,7 +150,7 @@ void rotacionar_esq(Pixel imagem[max][max]){
 
 }
     /*​
-     * Rotacionar 180º OK!!! Funcionando Agora!!!
+     * Função para rotacionar a imagem 180º
      */
 
 void rotacionar_180(Pixel imagem[altura][largura]){
@@ -159,7 +159,7 @@ void rotacionar_180(Pixel imagem[altura][largura]){
     
 }
     /*​
-     * Rotacionar 270º OK!!! Funcionando Agora!!!
+     * Função para rotacionar a imagem  270º
      */
 void rotacionar_270(Pixel imagem[altura][largura]){
    for(i=0;i<3;i++)
@@ -167,9 +167,9 @@ void rotacionar_270(Pixel imagem[altura][largura]){
 }
 
 
-/*
- *Alto Relevo
- */
+    /*
+     *Função para aplicar alto relevo
+     */
 
 void relevo(Pixel imagem[altura][largura]){
     Pixel imagemaux[altura][largura];
@@ -208,6 +208,10 @@ void relevo(Pixel imagem[altura][largura]){
     
     
 }
+    /*
+     *Função para ampliar a imagem repetindo os pixels laterais
+     */
+
 
 void ampliar_img(char arquivo[], int zoom,Pixel imagem[altura][largura]){
 FILE *img;
@@ -243,7 +247,7 @@ fclose(img);
 
 
     /*​
-     *Reduzir imagem
+     *Função para reduzir imagem
      */
 void reduzir_img(char arquivo[], int zoom,Pixel imagem[altura][largura]){
     int area = zoom*zoom;
@@ -276,8 +280,8 @@ img =  fopen(arquivo,"w");
     fclose(img);
 }
 
-   /*​
-     *Sharpening
+    /*
+     *Função para aplicar o sharpening
      */
 void passa_alta(Pixel imagem[altura][largura]) {
 
@@ -308,8 +312,8 @@ void passa_alta(Pixel imagem[altura][largura]) {
 
 }
 
-   /*​
-     *Blurring
+    /*
+     * Função para aplicar o blurring
      */
         
 void passa_baixa(Pixel imagem[altura][largura]){
@@ -352,9 +356,9 @@ void passa_baixa(Pixel imagem[altura][largura]){
 
 }
 
-/*
- *Gauss
- */
+    /*
+     *Função para aplicar o filtro de Gauss
+     */
 
 void gaussiano(Pixel imagem[altura][largura]){
     
@@ -400,9 +404,9 @@ void gaussiano(Pixel imagem[altura][largura]){
     
 }
 
-/*
- *laplace
- */
+    /*
+     *Função para aplicar o filtro de Laplace
+     */
 
 
 void laplace(Pixel imagem[altura][largura]){
