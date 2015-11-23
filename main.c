@@ -1,65 +1,69 @@
-/*
- * File:   main.c
- * Author: adelinofernandes
+/**
+ *  \mainpage Projeto do Processador de Imagens
+ *  \author Adelino Fernandes
+ *  \date 2015
+ *  \version Beta 
  *
- * Created on 30 de Outubro de 2015, 10:09
+ *  \file main.c
+ *  \brief Arquivo principal
+ *
+ *  Created on 30 de Outubro de 2015, 10:09
+ *
  */
 
 
 
-#include "include/Projeto.h"
-#include "include/filtros.h"
-#include "include/menu.h"
-#include "include/manipulacao.h"
-#include "include/funcoes.h"
+#include "include/Projeto.h"//**Biblioteca para uso de struct e variáveis usadas no programa*/
+#include "include/filtros.h"//**Biblioteca com os cabeçalho das funções*/
+#include "include/menu.h"//**Biblioteca com menu do programa*/
+#include "include/manipulacao.h"//**Biblioteca para gerar um novo arquivo de imagem*/
+#include "include/funcoes.h"//**Biblioteca das funções de manipuladoras de imagens*/
 
 
-
-
-
-/*
- *Lembrar de alocar dinamicamente... pode dar erro em imagens muito grandes....
+/**
+ *  \brief Método main onde é carregado o arquivo de imagem
+ *  \param Nenhum
+ *  \return EXIT_SUCCESS
  */
-
 
 
 int main(int argc, char** argv) {
    
 
 
-    printf("%s\n","Informe o nome do arquivo de imagem a ser aberto:");
+    printf("%s\n","Informe o nome do arquivo de imagem a ser aberto:");//**Abertura do arquivo da imagem*/
     scanf("%s",Nome_arquivo);
-    reset();
+    reset();//**Função limpa tela*/
     
     FILE *arquivo;
 
-    arquivo = fopen(Nome_arquivo, "r");
+    arquivo = fopen(Nome_arquivo, "r");//**Ler o arquivo*/
 
-    if(arquivo == NULL){
+    if(arquivo == NULL){//**Faz o teste de erro na abertura do arquivo*/
         printf("%s\n","Erro ao abrir o arquivo de imagem.");
     }else{
         printf("%s\n","Arquivo de imagem aberto com sucesso."); 
     }
 
-        fscanf(arquivo, "P3 %i %i 255",&largura, &altura);
+        fscanf(arquivo, "P3 %i %i 255",&largura, &altura);/**Ler os dados do cabeçalho*/
     
-    if (largura > altura) {
+    if (largura > altura) {/**Comparação para ver o maior valor da matriz*/
         
         max = largura;
     }else{
         max = altura;
     }
     
-Pixel imagem[max][max];
+    Pixel imagem[max][max];/**Cria uma variável do tipo struct*/
     
 
-    // Ler cada Pixel alocando na variável referente ao struct
+    //**Ler cada Pixel alocando na variável referente ao struct*/
     for (i = 0; i < altura; i++){
         for(j = 0; j < largura; j++){
             fscanf(arquivo, "%i %i %i", &imagem[i][j].r, &imagem[i][j].g, &imagem[i][j].b);
         }
     }
-    // fecha o arquivo
+    //**fecha o arquivo*/
     fclose(arquivo);
     
 
@@ -68,19 +72,19 @@ Pixel imagem[max][max];
 
     do{
 
-        menu();
+        menu();//**Menu do programa sendo chamado*/
 
         printf("\nDigite o comando:>");
-        scanf("%s",comando);
+        scanf("%s",comando);//**Comando para leitura do menu*/
         reset();
    
-        //converte para minusculo para facilitar a comparação.
-        for(i=0;comando[i];i++)
+        
+        for(i=0;comando[i];i++)//**converte as letras para minusculo afim de facilitar a comparação*/
             comando[i]=tolower(comando[i]);
    
         
         
-        if(strcmp(comando,"lap")==0){
+        if(strcmp(comando,"lap")==0){//**Chama o Filtro de laplace*/
             printf("\nExecutando o comando: %s\n", comando);
             laplace(imagem);
             printf("%s\n", "Informe o nome desejado para saída:");
@@ -89,7 +93,7 @@ Pixel imagem[max][max];
             printf("%s\n", "Imagem tratada com sucesso.");
             return (EXIT_SUCCESS);
             
-        }else if(strcmp(comando,"gau")==0){
+        }else if(strcmp(comando,"gau")==0){//**Chama o filtro de gaus*/
             printf("\nExecutando o comando: %s\n", comando);
             gaussiano(imagem);
             printf("%s\n", "Informe o nome desejado para saída:");
@@ -98,7 +102,7 @@ Pixel imagem[max][max];
             printf("%s\n", "Imagem tratada com sucesso.");
             return (EXIT_SUCCESS);
             
-        }else if(strcmp(comando,"blu")==0){
+        }else if(strcmp(comando,"blu")==0){//**Chama o filtro Blurring*/
             printf("\nExecutando o comando: %s\n", comando);
             passa_baixa(imagem);
             printf("%s\n", "Informe o nome desejado para saída:");
@@ -107,7 +111,7 @@ Pixel imagem[max][max];
             printf("%s\n", "Imagem tratada com sucesso.");
             return (EXIT_SUCCESS);
             
-        }else if(strcmp(comando,"sha")==0){
+        }else if(strcmp(comando,"sha")==0){//**Chama o filtro sharpening*/
             printf("\nExecutando o comando: %s\n", comando);
             passa_alta(imagem);
             printf("%s\n", "Informe o nome desejado para saída:");
@@ -116,7 +120,7 @@ Pixel imagem[max][max];
             printf("%s\n", "Imagem tratada com sucesso.");
             return (EXIT_SUCCESS);
             
-        }else if(strcmp(comando,"amp")==0){
+        }else if(strcmp(comando,"amp")==0){//**Chama a função para ampliação da imagem*/
            printf("\nExecutando o comando: %s\n", comando);
            
            printf("\nInforme o zoom desejado:\n");
@@ -130,7 +134,7 @@ Pixel imagem[max][max];
            printf("%s\n", "Imagem ampliada com sucesso.");
             return (EXIT_SUCCESS);
             
-        }else if(strcmp(comando,"red")==0){
+        }else if(strcmp(comando,"red")==0){//**Chama a função para redução da imagem*/
            printf("\nExecutando o comando: %s\n", comando);
            
            printf("\nInforme o zoom desejado:\n");
@@ -144,7 +148,7 @@ Pixel imagem[max][max];
            printf("%s\n", "Imagem reduzida com sucesso.");
             return (EXIT_SUCCESS);
             
-        }else if(strcmp(comando,"rel")==0){
+        }else if(strcmp(comando,"rel")==0){//**Chama o filtro para aplicar o relevo na imagem*/
             printf("\nExecutando o comando: %s\n", comando);
             relevo(imagem);
             printf("%s\n", "Informe o nome desejado para saída:");
@@ -153,7 +157,7 @@ Pixel imagem[max][max];
             printf("%s\n", "Imagem tratada com sucesso.");
             return (EXIT_SUCCESS);
             
-        }else if(strcmp(comando,"thr")==0){
+        }else if(strcmp(comando,"thr")==0){//**Chama o filtro da binarização*/
             printf("\nExecutando o comando: %s\n", comando);
             printf("\nInforme o valor do thresholding:\n");
                 scanf("%i",&thr);
@@ -164,7 +168,7 @@ Pixel imagem[max][max];
             printf("%s\n", "Imagem binarizada com sucesso.");
             return (EXIT_SUCCESS);
 
-        }else if(strcmp(comando,"gra")==0){
+        }else if(strcmp(comando,"gra")==0){//**Chama o filtro para grayscale*/
             printf("\nExecutando o comando: %s\n", comando);
                 grayscale(imagem);
             printf("%s\n", "Informe o nome desejado para saída:");
@@ -173,7 +177,7 @@ Pixel imagem[max][max];
             printf("%s\n", "Imagem tratada com sucesso.");
             return (EXIT_SUCCESS);
             
-        }else if(strcmp(comando,"inv")==0){
+        }else if(strcmp(comando,"inv")==0){//**Chama o filtro para inverter as cores*/
             printf("\nExecutando o comando: %s\n", comando);
                 inverter(imagem);
             printf("%s\n", "Informe o nome desejado para saída:");
@@ -182,7 +186,7 @@ Pixel imagem[max][max];
             printf("%s\n", "Imagem tratada com sucesso.");
             return (EXIT_SUCCESS);
 
-        }else if(strcmp(comando,"esp")==0){
+        }else if(strcmp(comando,"esp")==0){//**Chama a função para espelhar a imagem*/
             printf("\nExecutando o comando: %s\n", comando);
                 espelhar(imagem);
             printf("%s\n", "Informe o nome desejado para saída:");
@@ -191,10 +195,10 @@ Pixel imagem[max][max];
             printf("%s\n", "Imagem espelhada com sucesso.");
             return (EXIT_SUCCESS);
 
-        }else if(strcmp(comando,"rot")==0){
+        }else if(strcmp(comando,"rot")==0){//**Chama a função para rotacionar a imagem*/
             printf("%s\n", "Informe o ângulo desejado desejado (90, 180, 270):");
 
-		scanf("%i",&angulo);
+		scanf("%i",&angulo);//**Detalha o ângulo de rotação*/
 			
 		if(angulo == 90){
 			printf("\nExecutando o comando: %s\n", comando);
@@ -234,5 +238,5 @@ Pixel imagem[max][max];
 
         printf("%s\n", "Programa finalizado");
 
-    return (EXIT_SUCCESS);
+    return (EXIT_SUCCESS);//**Finaliza o programa*/
 }
