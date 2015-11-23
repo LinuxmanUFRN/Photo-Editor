@@ -1,37 +1,54 @@
-/* 
- * File:   main.c
- * Author: adelinofernandes
- *
- * Created on 30 de Outubro de 2015, 10:09
+/**
+ *  \file Projeto.h
+ *  \brief Arquivo com struct e variáveis globais
+ *  Created on 30 de Outubro de 2015, 10:09
  */
 
 #ifndef Projeto_h
 #define Projeto_h
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-#include <math.h>
+#include <stdio.h>//**Biblioteca de funções padrão da linguagem C*/
+#include <stdlib.h>//**Biblioteca para uso específico de algumas funções*/
+#include <string.h>//**Biblioteca para uso de strings*/
+#include <ctype.h>//**Biblioteca usada para tratamento de algumas especificidades do programa*/
+#include <math.h>//**Biblioteca para uso de funções matemáticas*/
 
 
 
 
-#define Max_nome 256 /*Tamanho do Nome do arquivo*/
+#define Max_nome 256 //**Tamanho do Nome do arquivo*/
 
 
 
-
+//**Variáveis usadas para alocar largura e altura da matriz*/
 int altura, largura;
-int g,h,i,j; //Para percorrer as matrizes no for...
-char Nome_arquivo[100];
-char arq[100];
-char comando[256];
-int angulo;
-int zoom;
-int max;
-int thr; // valor thresholding
 
+//**Variáveis usadas para contadores*/
+int g,h,i,j;
+
+//**Variável para alocar o nome do arquivo*/
+char Nome_arquivo[100];
+
+//**Variável para alocar o nome do arquivo 2*/
+char arq[100];
+
+//**Variável para alocar o comando desejado*/
+char comando[256];
+
+//**Variável para determinar o angulo de rotação*/
+int angulo;
+
+//**Variável para determinar a quantidade de vezes que a imagem é ampliada*/
+int zoom;
+
+//**Variável para alocar um valor máximo da matriz*/
+int max;
+
+//**Variável para valor de thresholding*/
+int thr;
+
+
+//**Struct com as cores do RGB*/
  typedef struct {
     int r;
     int g;
@@ -40,22 +57,19 @@ int thr; // valor thresholding
 typedef color Pixel;
 
 
-/*
- * Limpa Tela
- */
-
+/**Função limpa tela*/
 
 void reset() {
 
     
 #if defined WIN32
-    system("cls");
+    system("cls");//**No Windows*/
 #else
-    system("clear");
+    system("clear");//**No Linux*/
 #endif
 }
 
-/*Limpa o buffer do teclado http://pt.stackoverflow.com/questions/9427/limpeza-do-buffer-do-teclado-após-scanf*/
+//**Limpa o buffer do teclado http://pt.stackoverflow.com/questions/9427/limpeza-do-buffer-do-teclado-após-scanf*/
 void flush_in(){
     int ch;
     while( (ch = fgetc(stdin)) != EOF && ch != '\n' ){}
