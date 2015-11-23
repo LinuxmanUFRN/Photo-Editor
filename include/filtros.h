@@ -1,5 +1,5 @@
 /*
- * File:   main.c
+ * File:   filtros.h
  * Author: adelinofernandes
  * Created on 30 de Outubro de 2015, 10:09
  */
@@ -8,6 +8,7 @@
 
 #ifndef filtros_h
 #define filtros_h
+//**Cabeçalhos das funções*/
 void grayscale(Pixel imagem[altura][largura]);
 void binarization(Pixel imagem[altura][largura], int thr);
 void inverter(Pixel imagem[altura][largura]);
