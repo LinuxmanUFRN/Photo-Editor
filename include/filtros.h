@@ -1,14 +1,16 @@
-/*
- * File:   filtros.h
- * Author: adelinofernandes
- * Created on 30 de Outubro de 2015, 10:09
+/**
+ *  \file filtros.h
+ *  \brief Arquivo com os cabecalhos funcoes
+ *  Created on 30 de Outubro de 2015, 09:34
+ *  Arquivo com as funcoes do programa
+ *  Author: adelinofernandes
  */
 
 
 
 #ifndef filtros_h
 #define filtros_h
-//**Cabeçalhos das funções*/
+/**Cabecalhos das funcoes*/
 void grayscale(Pixel imagem[altura][largura]);
 void binarization(Pixel imagem[altura][largura], int thr);
 void inverter(Pixel imagem[altura][largura]);
