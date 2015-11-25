@@ -7,48 +7,47 @@
 #ifndef Projeto_h
 #define Projeto_h
 
-#include <stdio.h>//**Biblioteca de funções padrão da linguagem C*/
-#include <stdlib.h>//**Biblioteca para uso específico de algumas funções*/
-#include <string.h>//**Biblioteca para uso de strings*/
-#include <ctype.h>//**Biblioteca usada para tratamento de algumas especificidades do programa*/
-#include <math.h>//**Biblioteca para uso de funções matemáticas*/
+#include <stdio.h>/**Biblioteca de funções padrão da linguagem C*/
+#include <stdlib.h>/**Biblioteca para uso específico de algumas funções*/
+#include <string.h>/**Biblioteca para uso de strings*/
+#include <ctype.h>/**Biblioteca usada para tratamento de algumas especificidades do programa*/
+#include <math.h>/**Biblioteca para uso de funções matemáticas*/
 
 
 
-
-#define Max_nome 256 //**Tamanho do Nome do arquivo*/
-
+#define Max_nome 256 /**Tamanho do Nome do arquivo*/
 
 
-//**Variáveis usadas para alocar largura e altura da matriz*/
+
+/**Variáveis usadas para alocar largura e altura da matriz*/
 int altura, largura;
 
-//**Variáveis usadas para contadores*/
+/**Variáveis usadas para contadores*/
 int g,h,i,j;
 
-//**Variável para alocar o nome do arquivo*/
+/**Variável para alocar o nome do arquivo*/
 char Nome_arquivo[100];
 
-//**Variável para alocar o nome do arquivo 2*/
+/**Variável para alocar o nome do arquivo 2*/
 char arq[100];
 
-//**Variável para alocar o comando desejado*/
+/**Variável para alocar o comando desejado*/
 char comando[256];
 
-//**Variável para determinar o angulo de rotação*/
+/**Variável para determinar o angulo de rotação*/
 int angulo;
 
-//**Variável para determinar a quantidade de vezes que a imagem é ampliada*/
+/**Variável para determinar a quantidade de vezes que a imagem é ampliada*/
 int zoom;
 
-//**Variável para alocar um valor máximo da matriz*/
+/**Variável para alocar um valor máximo da matriz*/
 int max;
 
-//**Variável para valor de thresholding*/
+/**Variável para valor de thresholding*/
 int thr;
 
 
-//**Struct com as cores do RGB*/
+/**Struct com as cores do RGB*/
  typedef struct {
     int r;
     int g;
@@ -63,13 +62,13 @@ void reset() {
 
     
 #if defined WIN32
-    system("cls");//**No Windows*/
+    system("cls");/**No Windows*/
 #else
-    system("clear");//**No Linux*/
+    system("clear");/**No Linux*/
 #endif
 }
 
-//**Limpa o buffer do teclado http://pt.stackoverflow.com/questions/9427/limpeza-do-buffer-do-teclado-após-scanf*/
+/**Limpa o buffer do teclado http://pt.stackoverflow.com/questions/9427/limpeza-do-buffer-do-teclado-após-scanf*/
 void flush_in(){
     int ch;
     while( (ch = fgetc(stdin)) != EOF && ch != '\n' ){}
