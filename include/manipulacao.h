@@ -11,7 +11,7 @@
 #define manipulacao_h
 
 
-/*
+/**
  *Gera um novo aquivo .ppm com as devidas alocações de dados.
  */
 
