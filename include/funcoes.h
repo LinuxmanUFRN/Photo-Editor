@@ -1,7 +1,9 @@
-/*
- * File:   main.c
- * Author: adelinofernandes
- * Created on 30 de Outubro de 2015, 09:34
+/**
+ *  \file funcoes.h
+ *  \brief Arquivo com as funcoes do programa
+ *  Created on 30 de Outubro de 2015, 09:34
+ *  Arquivo com as funcoes do programa
+ *  Author: adelinofernandes
  */
 
 
@@ -9,8 +11,8 @@
 #ifndef funcoes_h
 #define funcoes_h
 
-    /*
-     *Função para aplicação da escala em cinza
+    /**
+     *Funcao para aplicacao da escala em cinza que consiste em aplicar valores afim de reduzir a quantidade de cores.
      */
     
 void grayscale(Pixel imagem[altura][largura]){
@@ -30,8 +32,8 @@ void grayscale(Pixel imagem[altura][largura]){
 }
     
     
-    /*
-     *Função de binarization da imagem usando thresholder
+    /**
+     *Funcao de binarizacao da imagem usando thresholder, quando o valor do pixel for maior que o valor dado pelo usuario atribui 255 senao 0, afim de deixar a imagem binarizada.
      */
         
 
@@ -64,8 +66,8 @@ void binarization(Pixel imagem[altura][largura], int thr){
 
 
 
-    /*​
-     *Funcão para inverter cores da imagem
+    /*​*
+     *Funcao para inverter cores da imagem apenas diminuindo do valor 255.
      */
 
 void inverter(Pixel imagem[altura][largura]){
@@ -82,8 +84,8 @@ void inverter(Pixel imagem[altura][largura]){
         }
     }
 }
-    /*​
-     *Função para espelhar a imagem
+    /*​*
+     *Funcao para espelhar a imagem, que consiste em aplicar a matriz transposta afim de espelhar a mesma.
      */
 
 void espelhar(Pixel imagem[altura][largura]){
@@ -115,8 +117,8 @@ void espelhar(Pixel imagem[altura][largura]){
 
 
 
-    /*​
-     * Função para rotacionar a imagem para esquerda.
+    /*​*
+     * Funcao para rotacionar a imagem para esquerda, basicamente apenas recebendo um valor, alocando o mesmo em uma matriz auxiliar e aplicando esta matriz auxilar dentro da original com o tratamento da mesma com valores de largura -j-1 e invertendo com o valor da altura.
      */
 
 void rotacionar_esq(Pixel imagem[max][max]){
@@ -149,8 +151,8 @@ void rotacionar_esq(Pixel imagem[max][max]){
     largura = aux;
 
 }
-    /*​
-     * Função para rotacionar a imagem 180º
+    /*​*
+     * Funcao para rotacionar a imagem 180º, aplica a funcao para rotacionar a esquerda duas vezes.
      */
 
 void rotacionar_180(Pixel imagem[altura][largura]){
@@ -158,8 +160,8 @@ void rotacionar_180(Pixel imagem[altura][largura]){
     rotacionar_esq(imagem);
     
 }
-    /*​
-     * Função para rotacionar a imagem  270º
+    /*​*
+     * Funcao para rotacionar a imagem  270º, aplica a funcao para rotacionar a esquerda tres vezes.
      */
 void rotacionar_270(Pixel imagem[altura][largura]){
    for(i=0;i<3;i++)
@@ -167,8 +169,8 @@ void rotacionar_270(Pixel imagem[altura][largura]){
 }
 
 
-    /*
-     *Função para aplicar alto relevo
+    /**
+     *Funcao para aplicar alto relevo, que consiste em verificar os valores dos pixels já com bordas tratadas e acentua as cores dos mesmos para realcar as bordas onde ha diferencas de cores.
      */
 
 void relevo(Pixel imagem[altura][largura]){
@@ -208,8 +210,8 @@ void relevo(Pixel imagem[altura][largura]){
     
     
 }
-    /*
-     *Função para ampliar a imagem repetindo os pixels laterais
+    /**
+     *Funcao para ampliar a imagem repetindo os pixels laterais, consiste apenas em repetir o mesmo valor nas laterais do pixel.
      */
 
 
@@ -246,8 +248,8 @@ fclose(img);
 }
 
 
-    /*​
-     *Função para reduzir imagem
+    /*​*
+     *Função para reduzir imagem, e o processo inverso da de ampliar imagem, no entando calculando uma area e aplicando novos valores baseados nesta area.
      */
 void reduzir_img(char arquivo[], int zoom,Pixel imagem[altura][largura]){
     int area = zoom*zoom;
@@ -280,8 +282,8 @@ img =  fopen(arquivo,"w");
     fclose(img);
 }
 
-    /*
-     *Função para aplicar o sharpening
+    /**
+     *Função para aplicar o sharpening, consiste em aplicar uma mascara no pixel afim de afiar a imagem.
      */
 void passa_alta(Pixel imagem[altura][largura]) {
 
@@ -312,8 +314,8 @@ void passa_alta(Pixel imagem[altura][largura]) {
 
 }
 
-    /*
-     * Função para aplicar o blurring
+    /**
+     * Função para aplicar o blurring, consiste em aplicar uma mascara 4x4 afim de tratar alguns erros na imagem, limpando a mesma.
      */
         
 void passa_baixa(Pixel imagem[altura][largura]){
@@ -356,8 +358,8 @@ void passa_baixa(Pixel imagem[altura][largura]){
 
 }
 
-    /*
-     *Função para aplicar o filtro de Gauss
+    /**
+     *Função para aplicar o filtro de Gauss. O filtro de gaus e um filtro de tratamento da imagem semelhante ao blurring, no entando e um filtro mais bem trabalhado e tem um poder de limpeza bem maior.
      */
 
 void gaussiano(Pixel imagem[altura][largura]){
@@ -404,8 +406,8 @@ void gaussiano(Pixel imagem[altura][largura]){
     
 }
 
-    /*
-     *Função para aplicar o filtro de Laplace
+    /**
+     *Funcao para aplicar o filtro de Laplace. O filtro de laplace e muito usado para se identificar detalhes na imagens, para isso e preciso aplicar a funcao de escala em cinza para ter uma maior nitidez.
      */
 
 
