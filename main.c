@@ -21,7 +21,7 @@
 
 
 /**
- *  \brief Método main onde é carregado o arquivo de imagem
+ *  \brief Metodo main onde é carregado o arquivo de imagem
  *  \param Nenhum
  *  \return EXIT_SUCCESS
  */
