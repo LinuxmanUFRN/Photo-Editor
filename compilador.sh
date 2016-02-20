@@ -10,7 +10,6 @@ COLUNA=$((LIMITE - 15))
 INDICE=0
 CONTADOR=0
 PORCENTAGEM2=0
-
 clear
 while true ; do
 INDICE=$(echo "$INDICE + 1" | bc)
