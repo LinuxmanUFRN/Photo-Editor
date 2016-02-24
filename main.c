@@ -11,8 +11,6 @@
  *
  */
 
-
-
 #include "include/Projeto.h"/**Biblioteca para uso de struct e variáveis usadas no programa*/
 #include "include/filtros.h"/**Biblioteca com os cabeçalho das funções*/
 #include "include/menu.h"/**Biblioteca com menu do programa*/
