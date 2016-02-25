@@ -17,7 +17,6 @@
 #include "include/manipulacao.h"/**Biblioteca para gerar um novo arquivo de imagem*/
 #include "include/funcoes.h"/**Biblioteca das funções de manipuladoras de imagens*/
 
-
 /**
  *  \brief Metodo main onde é carregado o arquivo de imagem
  *  \param Nenhum
