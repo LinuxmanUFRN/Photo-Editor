@@ -8,12 +8,7 @@ Adelino Afonso Fernandes Avelino
 Editor de Imagens via terminal 
 ####Linguagem: 
 C
-####Funções:
-Binarização da imagem usando thresholding    
-Filtro grayscale(Tons de cinza)              
-Filtro que inverte as cores da imagem         
-Faz um espelhamento da imagem                
-Rotaciona a imagem                            
+####Funções:magem                            
 Deixar a imagem em alto relevo                
 Ampliar imagem                              
 Reduzir imagem                              
