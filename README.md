@@ -1,14 +1,14 @@
 # Photo Editor version one
 Projeto das disciplinas de Práticas de técnicas de programação e Introdução às tecnicas de Programação
-####Professora:
+#### Professora:
 Marjory Abreu
-####Aluno: 
+#### Aluno: 
 Adelino Afonso Fernandes Avelino
-####Programa: 
+#### Programa: 
 Editor de Imagens via terminal 
-####Linguagem: 
+#### Linguagem: 
 C
-####Funções:
+#### Funções:
 Binarização da imagem usando thresholding    
 Filtro grayscale(Tons de cinza)              
 Filtro que inverte as cores da imagem         
@@ -21,6 +21,6 @@ Sharpering 'Passa-Alta'
 Blurring 'Passa-Baixa'                        
 Filtro Gaussiano                            
 Filtro laplace                               
-###Como compilar e executar:
+### Como compilar e executar:
 Abra seu terminal no diretório que está o programa e digite sh compilador.sh
 
